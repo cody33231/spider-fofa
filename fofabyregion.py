@@ -5,52 +5,52 @@ import time
 
 # 定义要提取的网页列表和对应的保存文件名
 urls = {
-    "https://fofa.info/result?qbase64=InVkcHh5IiAmJiBjb3VudHJ5PSJDTiI%3D": "QuanbuCN.txt",
-    "https://fofa.info/result?qbase64=InVkcHh5IiA%3D": "Quanbu.txt",
-    "https://fofa.info/result?qbase64=SFRUUCBjb3JlIHNlcnZlciBieSBSb3podWsgSXZhbi8xLjc%3D": "Quanbu2.txt",
-    "https://fofa.info/result?qbase64=KCgiSFRUUCBjb3JlIHNlcnZlciBieSBSb3podWsgSXZhbi8xLjciIHx8ICJ1ZHB4eSIpICYmIGNvdW50cnk9IkNOIikgJiYgcmVnaW9uPSJIYWluYW4i": "Hainan.txt",
-    "https://fofa.info/result?qbase64=InVkcHh5IiAmJiBjb3VudHJ5PSJDTiIgJiYgcmVnaW9uPSJKaWxpbiI%3D": "Jilin.txt",
-    "https://fofa.info/result?qbase64=InVkcHh5IiAmJiBjb3VudHJ5PSJDTiIgJiYgcmVnaW9uPSJDaG9uZ3Fpbmci": "Chongqing.txt",
-    "https://fofa.info/result?qbase64=InVkcHh5IiAmJiBjb3VudHJ5PSJDTiIgJiYgcmVnaW9uPSJTaGFueGki": "Shanxi.txt",  #山西   
-    "https://fofa.info/result?qbase64=InVkcHh5IiAmJiBjb3VudHJ5PSJDTiIgJiYgcmVnaW9uPSJHdWFuZ3hpIFpodWFuZ3p1Ig%3D%3D": "Guangxi Zhuangzu.txt",
-    "https://fofa.info/result?qbase64=InVkcHh5IiAmJiBjb3VudHJ5PSJDTiIgJiYgcmVnaW9uPSJTaWNodWFuIg%3D%3D": "Sichuan.txt",
-    "https://fofa.info/result?qbase64=InVkcHh5IiAmJiBjb3VudHJ5PSJDTiIgJiYgcmVnaW9uPSJHdWFuZ2Rvbmci": "Guangdong.txt",
-    "https://fofa.info/result?qbase64=InVkcHh5IiAmJiBjb3VudHJ5PSJDTiIgJiYgcmVnaW9uPSJaaGVqaWFuZyI%3D": "Zhejiang.txt",
-    "https://fofa.info/result?qbase64=InVkcHh5IiAmJiBjb3VudHJ5PSJDTiIgJiYgcmVnaW9uPSJKaWFuZ3N1Ig%3D%3D": "Jiangsu.txt",
-    "https://fofa.info/result?qbase64=InVkcHh5IiAmJiBjb3VudHJ5PSJDTiIgJiYgcmVnaW9uPSJCZWlqaW5nIg==": "Beijing.txt",
-    "https://fofa.info/result?qbase64=InVkcHh5IiAmJiBjb3VudHJ5PSJDTiIgJiYgcmVnaW9uPSJIZWlsb25namlhbmci": "Heilongjiang.txt",
-    "https://fofa.info/result?qbase64=InVkcHh5IiAmJiBjb3VudHJ5PSJDTiIgJiYgcmVnaW9uPSJIZW5hbiI%3D": "Henan.txt",
-    "https://fofa.info/result?qbase64=InVkcHh5IiAmJiBjb3VudHJ5PSJDTiIgJiYgcmVnaW9uPSJIdWJlaSI%3D": "Hubei.txt",
-    "https://fofa.info/result?qbase64=InVkcHh5IiAmJiBjb3VudHJ5PSJDTiIgJiYgcmVnaW9uPSJIdW5hbiI%3D": "Hunan.txt",
-    "https://fofa.info/result?qbase64=InVkcHh5IiAmJiBjb3VudHJ5PSJDTiIgJiYgcmVnaW9uPSJTaGFuZG9uZyI%3D": "Shandong.txt",
-    "https://fofa.info/result?qbase64=InVkcHh5IiAmJiBjb3VudHJ5PSJDTiIgJiYgcmVnaW9uPSJBbmh1aSI%3D": "Anhui.txt",
-    "https://fofa.info/result?qbase64=InVkcHh5IiAmJiBjb3VudHJ5PSJDTiIgJiYgcmVnaW9uPSJTaGFuZ2hhaSI%3D": "Shanghai.txt",
-    "https://fofa.info/result?qbase64=InVkcHh5IiAmJiBjb3VudHJ5PSJDTiIgJiYgcmVnaW9uPSJIZWJlaSI%3D": "Hebei.txt",
-    "https://fofa.info/result?qbase64=InVkcHh5IiAmJiBjb3VudHJ5PSJDTiIgJiYgcmVnaW9uPSJMaWFvbmluZyI%3D": "Liaoning.txt",
-    "https://fofa.info/result?qbase64=InVkcHh5IiAmJiBjb3VudHJ5PSJDTiIgJiYgcmVnaW9uPSJTaGFhbnhpIg%3D%3D": "Shaanxi.txt", #陕西
-    "https://fofa.info/result?qbase64=InVkcHh5IiAmJiBjb3VudHJ5PSJDTiIgJiYgcmVnaW9uPSJUaWFuamluIg%3D%3D": "Tianjin.txt",
-    "https://fofa.info/result?qbase64=InVkcHh5IiAmJiBjb3VudHJ5PSJDTiIgJiYgcmVnaW9uPSJGdWppYW4i": "Fujian.txt",
-    "https://fofa.info/result?qbase64=InVkcHh5IiAmJiBjb3VudHJ5PSJDTiIgJiYgcmVnaW9uPSJKaWFuZ3hpIg%3D%3D": "Jiangxi.txt",
-    "https://fofa.info/result?qbase64=InVkcHh5IiAmJiBjb3VudHJ5PSJDTiIgJiYgcmVnaW9uPSJYaW5qaWFuZyBVeWd1ciI=": "Xinjiang Uygur.txt",
-    "https://fofa.info/result?qbase64=InVkcHh5IiAmJiBjb3VudHJ5PSJDTiIgJiYgcmVnaW9uPSJOZWkgTW9uZ29sIg%3D%3D": "Nei Mongol.txt",
-    "https://fofa.info/result?qbase64=InVkcHh5IiAmJiBjb3VudHJ5PSJDTiIgJiYgcmVnaW9uPSJZdW5uYW4i": "Yunnan.txt",
-    "https://fofa.info/result?qbase64=InVkcHh5IiAmJiBjb3VudHJ5PSJDTiIgJiYgcmVnaW9uPSJHdWl6aG91Ig==": "Guizhou.txt",
-    "https://fofa.info/result?qbase64=InVkcHh5IiAmJiBjb3VudHJ5PSJDTiIgJiYgcmVnaW9uPSJHYW5zdSI%3D": "Gansu.txt",
-    "https://fofa.info/result?qbase64=InVkcHh5IiAmJiBjb3VudHJ5PSJDTiIgJiYgcmVnaW9uPSJRaW5naGFpIg%3D%3D": "Qinghai.txt",
-    "https://fofa.info/result?qbase64=InVkcHh5IiAmJiBjb3VudHJ5PSJDTiIgJiYgcmVnaW9uPSJOaW5neGlhIEh1aXp1Ig%3D%3D": "Ningxia Huizu.txt",
-    "https://fofa.info/result?qbase64=InVkcHh5IiAmJiByZWdpb249IlRXIg%3D%3D": "TW.txt",
-    "https://fofa.info/result?qbase64=InVkcHh5IiAmJiBjb3VudHJ5PSJDTiIgJiYgcmVnaW9uPSJISyI%3D": "HK.txt",
-    "https://fofa.info/result?qbase64=KCgiSFRUUCBjb3JlIHNlcnZlciBieSBSb3podWsgSXZhbi8xLjciIHx8ICJ1ZHB4eSIpICYmIGNvdW50cnk9IkNOIikgJiYgcmVnaW9uPSJYaXphbmci": "Xizang.txt",#Xizang
-    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIg": "SXZ.txt",
-    "https://fofa.info/result?qbase64=L1pIR1hUVi9pbmRleC5waHA%3D": "ZHGX.txt",
-    "https://fofa.info/result?qbase64=c3RhdGljL3R2aC5qcy5neg%3D%3D": "TVH.txt",
-    "https://fofa.info/result?qbase64=Imh0dHA6Ly9tdW11ZHZiLm5ldC8i": "MUMU.txt",
-    "https://fofa.info/result?qbase64=KCJIVFRQIGNvcmUgc2VydmVyIGJ5IFJvemh1ayBJdmFuLzEuNyIgfHwgInVkcHh5IikgJiYgY291bnRyeT0iQ04i": "udpandmsdcn.txt",
+    "https://fofa.info/result?qbase64=dGl0bGU9ImlTdG9yZU9TIiAmJiBpY29uX2hhc2g9Ii0yMTMyODQxNDU1IiAmJiAgcmVnaW9uPSJIYWluYW4i": "Hainan-store.txt",
+    "https://fofa.info/result?qbase64=dGl0bGU9ImlTdG9yZU9TIiAmJiBpY29uX2hhc2g9Ii0yMTMyODQxNDU1IiAmJiByZWdpb249IkppbGluIg%3D%3D": "Jilin-store.txt",
+    "https://fofa.info/result?qbase64=dGl0bGU9ImlTdG9yZU9TIiAmJiBpY29uX2hhc2g9Ii0yMTMyODQxNDU1IiAmJiByZWdpb249IkNob25ncWluZyI%3D": "Chongqing-store.txt",
+    "https://fofa.info/result?qbase64=dGl0bGU9ImlTdG9yZU9TIiAmJiBpY29uX2hhc2g9Ii0yMTMyODQxNDU1IiAmJiByZWdpb249IlNoYW54aSI%3D": "Shanxi-store.txt",
+    # 山西
+    "https://fofa.info/result?qbase64=dGl0bGU9ImlTdG9yZU9TIiAmJiBpY29uX2hhc2g9Ii0yMTMyODQxNDU1IiAmJiByZWdpb249Ikd1YW5neGkgWmh1YW5nenUi": "Guangxi Zhuangzu-store.txt",
+    "https://fofa.info/result?qbase64=dGl0bGU9ImlTdG9yZU9TIiAmJiBpY29uX2hhc2g9Ii0yMTMyODQxNDU1IiAmJiByZWdpb249IlNpY2h1YW4i": "Sichuan-store.txt",
+    "https://fofa.info/result?qbase64=dGl0bGU9ImlTdG9yZU9TIiAmJiBpY29uX2hhc2g9Ii0yMTMyODQxNDU1IiAmJiByZWdpb249Ikd1YW5nZG9uZyI%3D": "Guangdong-store.txt",
+    "https://fofa.info/result?qbase64=dGl0bGU9ImlTdG9yZU9TIiAmJiBpY29uX2hhc2g9Ii0yMTMyODQxNDU1IiAmJiByZWdpb249IlpoZWppYW5nIg%3D%3D": "Zhejiang-store.txt",
+    "https://fofa.info/result?qbase64=dGl0bGU9ImlTdG9yZU9TIiAmJiBpY29uX2hhc2g9Ii0yMTMyODQxNDU1IiAmJiByZWdpb249IkppYW5nc3Ui": "Jiangsu-store.txt",
+    "https://fofa.info/result?qbase64=dGl0bGU9ImlTdG9yZU9TIiAmJiBpY29uX2hhc2g9Ii0yMTMyODQxNDU1IiAmJiByZWdpb249IkJlaWppbmci": "Beijing-store.txt",
+    "https://fofa.info/result?qbase64=dGl0bGU9ImlTdG9yZU9TIiAmJiBpY29uX2hhc2g9Ii0yMTMyODQxNDU1IiAmJiByZWdpb249IkhlaWxvbmdqaWFuZyI%3D": "Heilongjiang-store.txt",
+    "https://fofa.info/result?qbase64=dGl0bGU9ImlTdG9yZU9TIiAmJiBpY29uX2hhc2g9Ii0yMTMyODQxNDU1IiAmJiByZWdpb249IkhlbmFuIg%3D%3D": "Henan-store.txt",
+    "https://fofa.info/result?qbase64=dGl0bGU9ImlTdG9yZU9TIiAmJiBpY29uX2hhc2g9Ii0yMTMyODQxNDU1IiAmJiByZWdpb249Ikh1YmVpIg%3D%3D": "Hubei-store.txt",
+    "https://fofa.info/result?qbase64=dGl0bGU9ImlTdG9yZU9TIiAmJiBpY29uX2hhc2g9Ii0yMTMyODQxNDU1IiAmJiByZWdpb249Ikh1bmFuIg%3D%3D": "Hunan-store.txt",
+    "https://fofa.info/result?qbase64=dGl0bGU9ImlTdG9yZU9TIiAmJiBpY29uX2hhc2g9Ii0yMTMyODQxNDU1IiAmJiByZWdpb249IlNoYW5kb25nIg%3D%3D": "Shandong-store.txt",
+    "https://fofa.info/result?qbase64=dGl0bGU9ImlTdG9yZU9TIiAmJiBpY29uX2hhc2g9Ii0yMTMyODQxNDU1IiAmJiByZWdpb249IkFuaHVpIg%3D%3D": "Anhui-store.txt",
+    "https://fofa.info/result?qbase64=dGl0bGU9ImlTdG9yZU9TIiAmJiBpY29uX2hhc2g9Ii0yMTMyODQxNDU1IiAmJiByZWdpb249IlNoYW5naGFpIg%3D%3D": "Shanghai-store.txt",
+    "https://fofa.info/result?qbase64=dGl0bGU9ImlTdG9yZU9TIiAmJiBpY29uX2hhc2g9Ii0yMTMyODQxNDU1IiAmJiByZWdpb249IkhlYmVpIg%3D%3D": "Hebei-store.txt",
+    "https://fofa.info/result?qbase64=dGl0bGU9ImlTdG9yZU9TIiAmJiBpY29uX2hhc2g9Ii0yMTMyODQxNDU1IiAmJiByZWdpb249IkxpYW9uaW5nIg%3D%3D": "Liaoning-store.txt",
+    "https://fofa.info/result?qbase64=dGl0bGU9ImlTdG9yZU9TIiAmJiBpY29uX2hhc2g9Ii0yMTMyODQxNDU1IiAmJiByZWdpb249IlNoYWFueGki": "Shaanxi-store.txt",
+    # 陕西
+    "https://fofa.info/result?qbase64=dGl0bGU9ImlTdG9yZU9TIiAmJiBpY29uX2hhc2g9Ii0yMTMyODQxNDU1IiAmJiByZWdpb249IlRpYW5qaW4i": "Tianjin-store.txt",
+    "https://fofa.info/result?qbase64=dGl0bGU9ImlTdG9yZU9TIiAmJiBpY29uX2hhc2g9Ii0yMTMyODQxNDU1IiAmJiByZWdpb249IkZ1amlhbiI%3D": "Fujian-store.txt",
+    "https://fofa.info/result?qbase64=dGl0bGU9ImlTdG9yZU9TIiAmJiBpY29uX2hhc2g9Ii0yMTMyODQxNDU1IiAmJiByZWdpb249IkppYW5neGki": "Jiangxi-store.txt",
+    "https://fofa.info/result?qbase64=dGl0bGU9ImlTdG9yZU9TIiAmJiBpY29uX2hhc2g9Ii0yMTMyODQxNDU1IiAmJiByZWdpb249IlhpbmppYW5nIFV5Z3VyIg%3D%3D": "Xinjiang Uygur-store.txt",
+    "https://fofa.info/result?qbase64=dGl0bGU9ImlTdG9yZU9TIiAmJiBpY29uX2hhc2g9Ii0yMTMyODQxNDU1IiAmJiByZWdpb249Ik5laSBNb25nb2wi": "Nei Mongol-store.txt",
+    "https://fofa.info/result?qbase64=dGl0bGU9ImlTdG9yZU9TIiAmJiBpY29uX2hhc2g9Ii0yMTMyODQxNDU1IiAmJiByZWdpb249Ill1bm5hbiI%3D": "Yunnan-store.txt",
+    "https://fofa.info/result?qbase64=dGl0bGU9ImlTdG9yZU9TIiAmJiBpY29uX2hhc2g9Ii0yMTMyODQxNDU1IiAmJiByZWdpb249Ikd1aXpob3Ui": "Guizhou-store.txt",
+    "https://fofa.info/result?qbase64=dGl0bGU9ImlTdG9yZU9TIiAmJiBpY29uX2hhc2g9Ii0yMTMyODQxNDU1IiAmJiByZWdpb249IkdhbnN1Ig%3D%3D": "Gansu-store.txt",
+    "https://fofa.info/result?qbase64=dGl0bGU9ImlTdG9yZU9TIiAmJiBpY29uX2hhc2g9Ii0yMTMyODQxNDU1IiAmJiByZWdpb249IlFpbmdoYWki": "Qinghai-store.txt",
+    "https://fofa.info/result?qbase64=dGl0bGU9ImlTdG9yZU9TIiAmJiBpY29uX2hhc2g9Ii0yMTMyODQxNDU1IiAmJiByZWdpb249Ik5pbmd4aWEgSHVpenUi": "Ningxia Huizu-store.txt",
+    "https://fofa.info/result?qbase64=dGl0bGU9ImlTdG9yZU9TIiAmJiBpY29uX2hhc2g9Ii0yMTMyODQxNDU1IiAmJiByZWdpb249IlRXIg%3D%3D": "TW-store.txt",
+    "https://fofa.info/result?qbase64=dGl0bGU9ImlTdG9yZU9TIiAmJiBpY29uX2hhc2g9Ii0yMTMyODQxNDU1IiAmJiByZWdpb249IkhLIg%3D%3D": "HK-store.txt",
+    # "https://fofa.info/result?qbase64=KCgiSFRUUCBjb3JlIHNlcnZlciBieSBSb3podWsgSXZhbi8xLjciIHx8ICJ1ZHB4eSIpICYmIGNvdW50cnk9IkNOIikgJiYgcmVnaW9uPSJYaXphbmci": "Xizang.txt",#Xizang
+    # "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIg": "SXZ.txt",
+    # "https://fofa.info/result?qbase64=L1pIR1hUVi9pbmRleC5waHA%3D": "ZHGX.txt",
+    # "https://fofa.info/result?qbase64=c3RhdGljL3R2aC5qcy5neg%3D%3D": "TVH.txt",
+    # "https://fofa.info/result?qbase64=Imh0dHA6Ly9tdW11ZHZiLm5ldC8i": "MUMU.txt",
+    # "https://fofa.info/result?qbase64=KCJIVFRQIGNvcmUgc2VydmVyIGJ5IFJvemh1ayBJdmFuLzEuNyIgfHwgInVkcHh5IikgJiYgY291bnRyeT0iQ04i": "udpandmsdcn.txt",
 }
 headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 }
 # 遍历网页列表
+
 for url, filename in urls.items():
     try:
         print(f'正在爬取{filename}.....')
