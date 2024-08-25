@@ -1,3 +1,13 @@
+www.sub.feifan.zone:3005
+png.feifan.zone:3005
+ifile.feifan.zone:3005
+sl.feifan.zone:3005
+tllgkblog.feifan.zone:3005
+casa.feifan.zone:3005
+musicdl.feifan.zone:3005
+e5calendar.feifan.zone:3005
+siyuan.feifan.zone:3005
+notea.feifan.zone:3005
 14.198.26.220:9999
 101.32.62.224:10002
 219.79.205.24
