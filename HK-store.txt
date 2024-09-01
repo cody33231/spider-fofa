@@ -1,3 +1,6 @@
+hk.sctv-tf.com:81
+www.if0x522.com:10002
+if0x522.com:10002
 223.19.38.141
 223.16.132.41:9999
 passengerhouse.synology.me
