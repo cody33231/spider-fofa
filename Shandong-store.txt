@@ -1,3 +1,7 @@
+th.ziqingi.com
+hnzl.ziqingi.com
+jx.ziqingi.com
+fyq.ziqingi.com
 124.134.74.233:88
 113.124.240.83:9000
 113.122.224.111:9200
