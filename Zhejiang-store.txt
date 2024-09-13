@@ -1,3 +1,7 @@
+ffffffffffff.wanmars.com:9999
+mx.ffffffffffff.wanmars.com:9999
+xxx.wanmars.com:9999
+webmaster.wanmars.com:9999
 mx.wanmars.com:9999
 cbf1.wanmars.com:9999
 lbmqrcbf1.wanmars.com:9999
