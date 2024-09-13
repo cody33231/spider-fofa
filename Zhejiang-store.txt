@@ -1,3 +1,5 @@
+101.70.43.198:88
+istore.wanmars.com:9999
 ffffffffffff.wanmars.com:9999
 mx.ffffffffffff.wanmars.com:9999
 xxx.wanmars.com:9999
