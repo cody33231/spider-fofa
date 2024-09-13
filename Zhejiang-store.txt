@@ -1,3 +1,13 @@
+mx.wanmars.com:9999
+cbf1.wanmars.com:9999
+lbmqrcbf1.wanmars.com:9999
+sipexternal.wanmars.com:9999
+g.wanmars.com:9999
+adonis.wanmars.com:9999
+www.webmaster.wanmars.com:9999
+ssl.wanmars.com:9999
+server.wanmars.com:9999
+ww.wanmars.com:9999
 115.237.118.203:88
 101.64.41.24:1000
 125.123.223.122:8889
