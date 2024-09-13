@@ -1,3 +1,4 @@
+115.196.95.73:99
 horizon.wanmars.com:9999
 101.70.43.198:88
 istore.wanmars.com:9999
