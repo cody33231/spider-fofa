@@ -1,3 +1,4 @@
+horizon.wanmars.com:9999
 101.70.43.198:88
 istore.wanmars.com:9999
 ffffffffffff.wanmars.com:9999
