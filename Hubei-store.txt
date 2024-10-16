@@ -1,3 +1,5 @@
+unraid.dawnsummit.top:9092
+27.24.84.20:8888
 dsm7.dawnsummit.top:9092
 esxi.dawnsummit.top:9092
 121.62.180.167:8880
