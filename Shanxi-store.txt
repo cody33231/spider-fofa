@@ -1,3 +1,5 @@
+hdh.hfwy1978.work:5051
+vmback.hfwy1978.work:5051
 www.unraid.hfwy1978.work:5051
 unraid.hfwy1978.work:5051
 _dmarc.hfwy1978.work:5051
