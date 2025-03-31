@@ -1,3 +1,7 @@
+www.unraid.hfwy1978.work:5051
+unraid.hfwy1978.work:5051
+_dmarc.hfwy1978.work:5051
+httdh.hfwy1978.work:5051
 openwrt.hfwy1978.work:5051
 win.hfwy1978.work:5051
 htdh.hfwy1978.work:5051
