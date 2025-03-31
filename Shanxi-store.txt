@@ -1,3 +1,6 @@
+openwrt.hfwy1978.work:5051
+win.hfwy1978.work:5051
+htdh.hfwy1978.work:5051
 60.220.161.163:999
 fengzi.x3322.net:58001
 183.188.178.115:3001
