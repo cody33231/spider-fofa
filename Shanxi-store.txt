@@ -1,3 +1,4 @@
+vscode.hfwy1978.work:5051
 ww.hfwy1978.work:5051
 dbadmin.hfwy1978.work:5051
 myds.hfwy1978.work:5051
