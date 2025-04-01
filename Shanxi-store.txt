@@ -1,3 +1,7 @@
+myds.hfwy1978.work:5051
+nas.hfwy1978.work:5051
+fb.hfwy1978.work:5051
+lede.hfwy1978.work:5051
 60.220.163.89:1200
 hdh.hfwy1978.work:5051
 vmback.hfwy1978.work:5051
